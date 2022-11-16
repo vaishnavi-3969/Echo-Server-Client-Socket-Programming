@@ -14,10 +14,8 @@ public class Client {
 
         try (Socket socket = new Socket("localhost", 5000)) {
             PrintWriter cout = new PrintWriter(socket.getOutputStream(), true);
-
             ThreadClient threadClient = new ThreadClient(socket);
             new Thread(threadClient).start(); // start thread to receive message
-
             cout.println(reply + ": has joined chatroom.");
             do {
                 String message = (name + " : ");
